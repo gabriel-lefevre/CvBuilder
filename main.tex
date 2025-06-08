@@ -1,177 +1,73 @@
-\documentclass[10pt,a4paper]{article}
-
-% Packages essentiels
+\documentclass[12pt,a4paper]{moderncv}
+\moderncvtheme[blue]{classic}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{geometry}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{fontawesome5}
-\usepackage{tabularx}
-\usepackage{array}
-\usepackage{multicol}
+\usepackage[inline]{enumitem}
+% Marge aux 4 coins de la page, ici elles sont réduites pour gagner de la place
+\usepackage[top=1.0cm, bottom=1.0cm, left=1.6cm, right=1.6cm]{geometry}
+% Largeur de la colonne de gauche pour les dates
+\setlength{\hintscolumnwidth}{2.7cm}
 
-% Configuration de la page
-\geometry{
-    top=0.8cm,
-    bottom=0.8cm,
-    left=1.5cm,
-    right=1.5cm
-}
+\firstname{Alexis}
+\familyname{Madrzejewski}
+\title{Administrateur système / Devops}
+\address{2 rue qui n'existe pas}{63000 Clermont-Ferrand}
+\email{redacted@redacted.invalid}
+\homepage{www.madrzejewski.com}
+\mobile{06 00 00 00 00}
+\extrainfo{26 ans -- Permis B}
 
-% Supprimer la numérotation des pages
-\pagestyle{empty}
-
-% Couleurs identiques au template
-\definecolor{headercolor}{RGB}{45, 130, 120}  % Vert-bleu pour les titres
-\definecolor{linecolor}{RGB}{218, 165, 32}    % Doré pour les lignes
-\definecolor{textcolor}{RGB}{0, 0, 0}         % Noir pour le texte
-
-% Configuration des hyperliens
-\hypersetup{
-    colorlinks=true,
-    linkcolor=headercolor,
-    urlcolor=headercolor,
-    pdftitle={CV - John Doe},
-    pdfauthor={John Doe}
-}
-
-% Personnalisation des titres de sections
-\titleformat{\section}
-{\color{headercolor}\large\bfseries}
-{}
-{0em}
-{}[\textcolor{linecolor}{\titlerule[1pt]}]
-
-\titlespacing{\section}{0pt}{8pt}{4pt}
-
-% Espacement des listes
-\setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt, leftmargin=1em}
-
-% Commandes personnalisées
-\newcommand{\cventry}[6]{
-    \textbf{#1} \hfill \textbf{#2} \\
-    \textit{#3} \\
-    #4 \\
-    #5
-    \vspace{0.3em}
-}
-
-\newcommand{\cvproject}[4]{
-    \textbf{#1} \hfill \textbf{#2} \\
-    #3 \\
-    #4
-    \vspace{0.3em}
-}
-
-% Début du document
 \begin{document}
+    \maketitle
+% Marge négative entre le titre et la partie expérience, pour gagner de la place
+    \vspace*{-2.5\baselineskip}
 
-% En-tête centré avec nom
-    \begin{center}
-    {\huge\bfseries\color{headercolor} John Doe} \\[0.3em]
-    \faPhone\ 123-456-7890 \textbf{---} \faEnvelope\ \href{mailto:USER@domain.tld}{USER@domain.tld} \textbf{---} \faLinkedin\ \href{https://linkedin.com/in/USER}{linkedin.com/in/USER} \textbf{---} \faGithub\ \href{https://github.com/USER}{github.com/USER}
-    \end{center}
+    \section{Expériences}
+    \cventry{Mars 2013\\à Aujourd'hui}{Administrateur système}{o2switch}{Clermont-Ferrand}{France}{
+        \begin{itemize}%
+            \item Gestion de \texttt{+}200 serveurs Centos\texttt{/}LAMP basé sur cPanel\texttt{/}WHM, \texttt{+}100k sites hébergés
+            \item \textbf{Développement} : \textit{scripts bash, web html\texttt{/}css\texttt{/}php\texttt{/}mysql, extensions WHM\texttt{/}cPanel}
+            \begin{itemize}%
+                \item Exemple de projet, développement d'une extension cPanel permettant aux clients d'activer un cache Varnish personnalisé sur leur site internet.
+                Permet aussi de changer l'adresse IP associée à un site internet pour des besoins SEO.
+                \textbf{Technologies utilisées} : \textit{API WHM/cPanel, PHP POO, Composer, Git, Docker, Symfony4, Tests unitaires phpunit, Nginx, Varnish}
+            \end{itemize}
+            \item Support client par ticket\texttt{/}téléphone \textit{(demandes variées)}, gestion de la documentation\newline
+        \end{itemize}}
 
-    \vspace{0.2em}
+    \cventry{Avril 2012\\à Octobre 2012}{Administrateur système}{Vesalis}{Clermont-Ferrand}{France}{
+        \begin{itemize}%
+            \item Mise en place d'une solution de répartition de charge sur un serveur IBM Blade Center
+            \item Adaptation du code des logiciels \textit{C\texttt{/}C\texttt{+}\texttt{+}} de la société pour le rendre compatible Linux\newline{}
+        \end{itemize}}
 
-% Summary
-    \section{Summary}
-    Simplified version of a monstrosity that I built back in college using current best practices.
+    \cventry{Juin 2009\\à Avril 2012}{Création de Tutoriels-video.fr}{}{}{}{
+        \begin{itemize}%
+            \item Formations vidéos gratuites en informatique.
+            Plus d'un \textbf{million de vues} sur les vidéos.
+        \end{itemize}}
 
-% Skills
-    \section{Skills}
+    \section{Formations}
+    \cventry{2012 -- 2013}{Licence Professionnelle}{IUT Clermont-Ferrand (63)}{}{}{Spécialité Administration et Sécurité des Réseaux}
+    \cventry{2010 -- 2012}{DUT informatique}{IUT Clermont-Ferrand}{}{}{Spécialité systèmes embarqués. Formation orienté Linux\texttt{/}Debian et programmation C}
 
-    \begin{multicols}{2}
-        \textbf{Automation} SaltStack, Ansible, Chef, Puppet \\
-        \textbf{Cloud} Salt-Cloud, Linode, GCP, AWS \\
-        \textbf{Languages} Python, Bash, PHP, Perl, VB/C\#.Net \\
+    \section{Certifications}
+    \cventry{Juillet 2017}{Certification LFCE}{The Linux Foundation}{Valide 2 ans}{\href{https://www.alexis-madrzejewski.com/ressources/lfce-madrzejewski.pdf}{LFCE-1700-0334-0200}}{
+        Certification \textit{Linux Foundation Certified Engineer} créé par \textit{The Linux Foundation}.
+        Les compétences testées sont en rapport avec Linux et l'administration système avancé.\newline
+    }
+    \cventry{Août 2016}{Certification LFCS}{The Linux Foundation}{Valide 2 ans}{\href{https://www.alexis-madrzejewski.com/ressources/lfcs-madrzejewski.pdf}{LFCS-1600-0922-0100}}{
+        Certification \textit{Linux Foundation Certified System Administrator}.
+    }
 
-        \columnbreak
+    \section{Compétences en informatique}
+    \cvdoubleitem{\underline{OS}}{Centos 6\texttt{/}7, Debian, CloudLinux}{\underline{Virtualisation}}{Proxmox, OpenVZ}
+    \cvitem{\underline{Programmation}}{HTML, CSS, Javascript, PHP, SQL, Bash, C, Silex, Symfony (3\texttt{/}4), Bootstrap (3)}
+    \cvitem{\underline{Admin. services}}{Apache, Nginx, Varnish, WHM\texttt{/}cPanel, MySQL, Bind, Postfix, Dovecot, Exim}
+    \cvitem{\underline{Admin. fichiers}}{LVM, mdadm, Cloisonnement Cloudlinux}
+    \cvitem{\underline{Sécurité}}{Notions SELinux, CSF, iptables, firewalld}
+    \cvlanguage{\underline{Anglais}}{lu, écrit, parlé -- Toeic 965 \texttt{/} 990}{}
 
-        \textbf{OS} Debian, Ubuntu, CentOS, BSD, AIX \\
-        \textbf{Policies} CIS, SOC2, PCI-DSS, GDPR, ITIL \\
-        \textbf{Testing} Pytest, Docker, CircleCI, Jenkins, Inspec \\
-    \end{multicols}
-
-% Experience
-    \section{Experience}
-
-    \cventry{Consulting Corp}{Jul 2015 – Jun 2025}{\textit{Senior DevOps Engineer (FTE Consultant)}}{
-        \textbf{Client: Notable Placement}
-        \begin{itemize}
-            \item Analyzed network traffic patterns to identify bottlenecks and optimize performance
-            \item Implemented firewall rules to enhance network security and prevent unauthorized access
-            \item Conducted regular vulnerability assessments and applied patches to secure systems
-            \item Collaborated with cross-functional teams to streamline IT processes and improve efficiency
-        \end{itemize}
-
-        \textbf{Client: Challenges Unlimited}
-        \begin{itemize}
-            \item Configured monitoring tools to track system performance and troubleshoot issues proactively
-            \item Automated routine tasks using scripts to reduce manual effort and increase productivity
-            \item Documented system configurations and procedures for knowledge sharing within the team
-            \item Participated in disaster recovery planning and drills to ensure business continuity in case of emergencies
-        \end{itemize}
-
-        \textbf{Client: Broken Galleries}
-        \begin{itemize}
-            \item Implemented cloud migration strategies to move applications to a hybrid environment
-            \item Optimized database performance through indexing and query tuning techniques
-            \item Conducted capacity planning and scalability assessments to support future growth
-            \item Provided on-call support for critical issues and worked on root cause analysis for incident resolution
-        \end{itemize}
-    }{}
-
-    \cventry{HealthCo Industries}{Feb 2011 – Mar 2016}{\textit{Senior Systems Administrator (SRE)}}{
-        \begin{itemize}
-            \item Managed virtualized server environment spanning multiple data centers
-            \item Oversaw migration of critical business applications to cloud-based platforms
-            \item Configured and monitored network security measures, including firewalls and intrusion detection systems
-            \item Implemented multi-factor authentication for remote access to company systems
-            \item Streamlined patch management process, reducing vulnerabilities and downtime
-            \item Conducted regular vulnerability assessments and penetration testing
-            \item Automated server provisioning and configuration management tasks
-            \item Maintained documentation for IT policies and procedures
-            \item Coordinated responses to cybersecurity incidents with internal teams and external vendors
-        \end{itemize}
-    }{}
-
-% Education
-    \section{Education}
-
-    \textbf{State University} \\
-    \textit{Bachelor of Science in Computer Information Systems} \\
-    \textit{Minors: Networking ; Network Security}
-
-    \vspace{0.3em}
-
-% Certifications
-    \textbf{Certifications}
-    \begin{itemize}
-        \item Salt - SaltStack Certified Engineer
-        \item GCP - Professional Cloud Architect
-    \end{itemize}
-
-% Projects
-    \section{Projects}
-
-    \cvproject{Hospital / Health Scence IRB}{Mar 2015 – Present}{
-        \begin{itemize}
-            \item Served as non-scientific/unaffiliated patient-representative
-            \item Reviewed patient consent forms for completeness, accuracy, and clarity
-            \item Became familiar with industry standards and regulations (OHRP, HIPAA)
-        \end{itemize}
-    }{}
-
-    \cvproject{Debian Linux}{Jan 2001 – Present}{
-        \begin{itemize}
-            \item Maintained packages in Debian repositories
-            \item Reviewed and sponsored packages on behalf of prospective Developers
-            \item Resolved bugs reported in bug tracking system
-        \end{itemize}
-    }{}
-
+    \section{Centres d'intérêt}
+    \cvitem{}{\href{https://www.youtube.com/results?search_query=Lockpicking}{Lockpicking} \textit{(crochetage)}, \href{https://www.youtube.com/results?search_query=Cardistry}{Cardistry},
+        Création d'articles et vidéos sur mes sites}
 \end{document}

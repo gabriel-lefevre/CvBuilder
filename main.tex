@@ -1,0 +1,142 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages essentiels
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{wasysym}
+
+% Configuration de la page
+\geometry{
+    top=0.8cm,
+    bottom=0.8cm,
+    left=1.5cm,
+    right=1.5cm
+}
+
+% Supprimer la numérotation des pages
+\pagestyle{empty}
+
+% Couleurs du template
+\definecolor{headercolor}{RGB}{45, 130, 120}  % Vert-bleu pour les titres
+\definecolor{linecolor}{RGB}{218, 165, 32}    % Doré pour les lignes
+\definecolor{textcolor}{RGB}{0, 0, 0}         % Noir pour le texte
+
+% Configuration des hyperliens
+\hypersetup{
+    colorlinks=true,
+    linkcolor=headercolor,
+    urlcolor=headercolor,
+    pdftitle={CV},
+    pdfauthor={CV Builder}
+}
+
+% Personnalisation des titres de sections
+\titleformat{\section}
+{\color{headercolor}\large\bfseries}
+{}
+{0em}
+{}[\textcolor{linecolor}{\titlerule[1pt]}]
+
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+% Espacement des listes
+\setlist{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt, leftmargin=1em}
+
+% Commandes personnalisées pour formatage
+\newcommand{\cventry}[6]{
+    \textbf{#1} \hfill \textbf{#2} \\
+    \textit{#3} \\
+    #4 \\
+    #5
+    \vspace{0.3em}
+}
+
+\newcommand{\cvproject}[4]{
+    \textbf{#1} \hfill \textbf{#2} \\
+    #3 \\
+    #4
+    \vspace{0.3em}
+}
+
+% ========================================
+% INCLUSION DES FICHIERS PERSONNELS
+% ========================================
+% Le template cherche d'abord dans personal/, puis dans examples/
+
+% Fonction pour inclure les fichiers avec fallback
+\newcommand{\includePersonalFile}[1]{
+    \IfFileExists{personnnnnnnnnnal/#1.tex}{
+        \input{personal/#1}
+    }{
+        \IfFileExists{examples/#1.tex}{
+            \input{examples/#1}
+        }{
+            \textcolor{red}{\textbf{Erreur: Fichier #1.tex non trouvé dans personal/ ou examples/}}
+        }
+    }
+}
+
+% Début du document
+\begin{document}
+
+% ========================================
+% EN-TÊTE AVEC INFORMATIONS PERSONNELLES
+% ========================================
+
+% Inclusion des variables du header
+    \includePersonalFile{header}
+
+% Construction de l'en-tête
+    \begin{center}
+    {\huge\bfseries\color{headercolor} \firstname\ \lastname} \\[0.3em]
+    \faPhone\ \phone\ \textbf{---} \faEnvelope\ \href{mailto:\email}{\email} \textbf{---} \faLinkedin\ \href{https://linkedin.com/in/\linkedin}{linkedin.com/in/\linkedin} \textbf{---} \faGithub\ \href{https://github.com/\github}{github.com/\github}
+    % Site web optionnel
+    \ifx\website\empty
+    \else
+        \textbf{---} \faGlobe\ \href{https://\website}{\website}
+    \fi
+    \end{center}
+
+    \vspace{0.2em}
+
+% ========================================
+% SECTIONS DU CV
+% ========================================
+
+% Summary
+    \section{Summary}
+    \includePersonalFile{summary}
+
+% Skills
+    \section{Skills}
+    \begin{multicols}{2}
+        \includePersonalFile{skills}
+    \end{multicols}
+
+% Experience
+    \section{Experience}
+    \includePersonalFile{experience}
+
+% Education
+    \section{Education}
+    \includePersonalFile{education}
+
+    \vspace{0.3em}
+
+% Certifications (inclus dans le même fichier que education)
+    \includePersonalFile{certifications}
+
+% Projects
+    \section{Projects}
+    \includePersonalFile{projects}
+
+\end{document}

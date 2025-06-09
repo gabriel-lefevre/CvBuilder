@@ -3,3 +3,76 @@
 /workspace.xml
 # Environment-dependent path to Maven home directory
 /mavenHomeManager.xml
+
+# LaTeX generated files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.idx
+*.ind
+*.ilg
+*.nav
+*.snm
+*.vrb
+*.figlist
+*.makefile
+*.tmpfiles
+*.end
+*.auxlock
+
+# Output directories
+out/
+build/
+dist/
+
+# Generated PDFs
+*.pdf
+
+# Personal information module (sensitive data)
+Personal/
+personal/
+
+# IDE specific files
+.idea/misc.xml
+.idea/workspace.xml
+.idea/dictionaries/
+.idea/inspectionProfiles/
+.idea/shelf/
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dynamic.xml
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*~
+*.swp
+*.swo
+*tmp*
+*.backup
+*.bak
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip

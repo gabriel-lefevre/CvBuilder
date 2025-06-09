@@ -1,0 +1,95 @@
+\documentclass[11pt,letterpaper]{article}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+
+% Define professional colors (both cases for IDE compatibility)
+\definecolor{darkblue}{RGB}{25,25,112}
+\definecolor{DARKBLUE}{RGB}{25,25,112}
+\definecolor{mediumgray}{RGB}{102,102,102}
+\definecolor{lightgray}{RGB}{240,240,240}
+
+% Hyperref configuration for ATS compatibility
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue,
+    pdfborder={0 0 0},
+    pdftitle={John Doe - Resume},
+    pdfauthor={John Doe},
+    pdfsubject={Resume},
+    pdfkeywords={DevOps, Systems Administrator, Cloud, Python, AWS}
+}
+
+% Remove indentations
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% List configuration for ATS
+\setlist[itemize]{leftmargin=15pt,topsep=2pt,itemsep=1pt,parsep=0pt}
+
+% ATS-friendly section styles with subtle visual improvements
+\titleformat{\section}{\large\bfseries\color{darkblue}\uppercase}{}{0em}{}[\textcolor{darkblue}{\titlerule[0.8pt]}\vspace{2pt}]
+\titleformat{\subsection}{\normalsize\bfseries\color{darkblue}}{}{0em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
+
+% Custom commands with improved styling
+\newcommand{\jobtitle}[4]{
+    \textbf{\color{darkblue}#1} \hfill \textcolor{mediumgray}{#2} \\
+    \textit{#3} \hfill \textcolor{mediumgray}{#4} \\
+    \vspace{3pt}
+}
+
+\newcommand{\education}[4]{
+    \textbf{\color{darkblue}#1} \hfill \textcolor{mediumgray}{#2} \\
+    #3 \hfill \textcolor{mediumgray}{#4} \\
+    \vspace{3pt}
+}
+
+\newcommand{\project}[3]{
+    \textbf{\color{darkblue}#1} \hfill \textcolor{mediumgray}{#2} \\
+    \textit{#3}
+    \vspace{3pt}
+}
+
+% Custom command for skills categories
+\newcommand{\skillcat}[2]{
+    \textbf{\color{darkblue}#1:} #2 \\
+}
+
+\begin{document}
+
+% Header
+    \input{section/header}
+
+% Summary
+    \section{Summary}\label{sec:summary}
+    \input{section/summary}
+
+% Skills
+    \section{Skills}\label{sec:skills}
+    \input{section/skills}
+
+% Professional Experience
+    \section{Professional Experiences}\label{sec:professional-experiences}
+    \input{section/experience}
+
+% Education
+    \section{Educations}\label{sec:educations}
+    \input{section/education}
+
+% Projects
+    \section{Projects}\label{sec:projects}
+    \input{section/projects}
+
+\end{document}
